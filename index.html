@@ -1,1 +1,52 @@
-<html><head><title>تم التحديث</title></head><body><h1>الموقع النهائي يعمل 100%!</h1></body></html>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الاحترافي</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="dark-mode">
+
+    <div class="sidebar hidden" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <h2>📂 القائمة</h2>
+        <a href="#" onclick="showSection('services')">📊 خدماتك</a>
+        <a href="#" onclick="showSection('payments')">💳 وسائل الدفع</a>
+        <button onclick="logout()">🚪 تسجيل الخروج</button>
+    </div>
+
+    <button class="menu-btn hidden" id="menuButton" onclick="toggleSidebar()">☰ القائمة</button>
+
+    <div class="container">
+        <section id="register" class="animated fadeIn">
+            <h2>🆕 تسجيل حساب جديد</h2>
+            <input type="text" id="regName" placeholder="الاسم" required>
+            <input type="email" id="regEmail" placeholder="البريد الإلكتروني" required>
+            <input type="password" id="regPassword" placeholder="كلمة المرور" required>
+            <button onclick="register()" class="glow-button">إنشاء الحساب</button>
+        </section>
+
+        <section id="login" class="animated fadeIn">
+            <h2>🔑 تسجيل الدخول</h2>
+            <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required>
+            <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
+            <button onclick="login()" class="glow-button">تسجيل الدخول</button>
+        </section>
+
+        <section id="services" class="hidden animated fadeIn">
+            <h2>📊 خدماتك</h2>
+            <p class="animated slideIn">📈 التحليلات</p>
+            <p class="animated slideIn">💰 الصفقات</p>
+        </section>
+
+        <section id="payments" class="hidden animated fadeIn">
+            <h2>💳 وسائل الدفع</h2>
+            <p class="animated slideIn">إضافة طرق الدفع المختلفة</p>
+        </section>
+    </div>
+
+</body>
+</html>
