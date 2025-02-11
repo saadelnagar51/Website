@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معي</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>إرسال بريد عبر EmailJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>تواصل معي</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="gallery.html">معرض الصور</a></li>
-                <li><a href="login.html">تسجيل الدخول</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section>
-        <h2>اترك رسالة</h2>
-        <form>
-            <input type="text" placeholder="الاسم" required><br><br>
-            <input type="email" placeholder="البريد الإلكتروني" required><br><br>
-            <textarea placeholder="رسالتك" required></textarea><br><br>
-            <button type="submit">إرسال</button>
-        </form>
-    </section>
+    <h2>📩 إرسال رسالة عبر EmailJS</h2>
+    <form id="contactForm">
+        <input type="text" id="userName" placeholder="الاسم" required>
+        <input type="email" id="userEmail" placeholder="البريد الإلكتروني" required>
+        <textarea id="userMessage" placeholder="اكتب رسالتك هنا..." required></textarea>
+        <button type="submit">إرسال</button>
+    </form>
+
+    <script>
+        (function() {
+            emailjs.init("MTf_P8NaYf92ptUes"); // استخدم Public Key الخاص بك
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var templateParams = {
+                name: document.getElementById("userName").value,
+                email: document.getElementById("userEmail").value,
+                message: document.getElementById("userMessage").value
+            };
+
+            emailjs.send("service_xuq2bvm", "template_lb7vrzp", templateParams)
+            .then(function(response) {
+                alert("✅ تم إرسال البريد بنجاح!");
+                console.log("SUCCESS!", response.status, response.text);
+            }, function(error) {
+                alert("❌ حدث خطأ أثناء الإرسال!");
+                console.log("FAILED...", error);
+            });
+        });
+    </script>
+
 </body>
 </html>
