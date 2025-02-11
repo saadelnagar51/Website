@@ -1,3 +1,4 @@
+
 function toggleSidebar() {
     let sidebar = document.getElementById("sidebar");
     sidebar.style.left = sidebar.style.left === "0px" ? "-260px" : "0px";
