@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #fff;
-    color: #000;
+    background-color: black;
+    color: white;
     transition: background 0.5s, color 0.5s;
 }
 
@@ -18,10 +18,20 @@ button {
     padding: 10px;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: black;
+    background-color: gray;
+    transform: scale(1.1);
+}
+
+.glow-button {
+    box-shadow: 0 0 10px red;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 20px yellow;
 }
 
 .sidebar {
@@ -30,21 +40,26 @@ button:hover {
     top: 0;
     width: 250px;
     height: 100%;
-    background: black;
+    background: #222;
     color: white;
     padding: 20px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
-.sidebar a {
+.sidebar a, .sidebar button {
     display: block;
     color: white;
     padding: 10px;
     text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
 }
 
-.sidebar a:hover {
+.sidebar a:hover, .sidebar button:hover {
     background: red;
+    transform: scale(1.05);
 }
 
 .menu-btn {
@@ -66,7 +81,26 @@ button:hover {
     display: none;
 }
 
-.dark-mode {
-    background-color: black;
-    color: white;
+/* تأثيرات متحركة */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slideIn {
+    animation-name: slideIn;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }

@@ -10,10 +10,6 @@ function showSection(sectionId) {
     document.getElementById(sectionId).classList.remove("hidden");
 }
 
-document.getElementById("toggleMode").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-});
-
 function register() {
     let name = document.getElementById("regName").value;
     let email = document.getElementById("regEmail").value;
@@ -35,7 +31,35 @@ function login() {
 
     if (userData && userData.password === password) {
         alert("✅ تم تسجيل الدخول بنجاح، مرحبًا " + userData.name + "!");
+
+        document.getElementById("register").classList.add("hidden");
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("sidebar").classList.remove("hidden");
+        document.getElementById("menuButton").classList.remove("hidden");
+        document.getElementById("services").classList.remove("hidden");
+        document.getElementById("payments").classList.remove("hidden");
+
+        localStorage.setItem("loggedInUser", email);
     } else {
         alert("❌ البريد الإلكتروني أو كلمة المرور غير صحيحة!");
     }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (loggedInUser) {
+        document.getElementById("register").classList.add("hidden");
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("sidebar").classList.remove("hidden");
+        document.getElementById("menuButton").classList.remove("hidden");
+        document.getElementById("services").classList.remove("hidden");
+        document.getElementById("payments").classList.remove("hidden");
+    }
+});
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    alert("🚪 تم تسجيل الخروج!");
+    location.reload();
 }
