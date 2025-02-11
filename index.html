@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الشخصي</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>اتصل بنا</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>مرحبًا بك في موقعي الشخصي</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="gallery.html">معرض الصور</a></li>
-                <li><a href="contact.html">تواصل معي</a></li>
-                <li><a href="login.html">تسجيل الدخول</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>📩 تواصل معنا</h1>
+            <button id="toggleMode">🌙 تبديل الوضع الليلي</button>
+        </header>
 
-    <section>
-        <h2>أهلاً وسهلاً بك!</h2>
-        <p>هذا هو موقعي الشخصي حيث أشارك أفكاري وصوري. استمتع بتصفح الموقع!</p>
-    </section>
+        <div class="map-container">
+            <img src="assets/egypt-map.gif" alt="خريطة مصر المتحركة">
+        </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © 2025</p>
-    </footer>
+        <form id="contactForm">
+            <input type="text" id="userName" placeholder="الاسم" required>
+            <input type="email" id="userEmail" placeholder="البريد الإلكتروني" required>
+            <textarea id="userMessage" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

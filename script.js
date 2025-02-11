@@ -1,16 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("🚀 الموقع جاهز!");
+document.getElementById("toggleMode").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+});
 
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+(function() {
+    emailjs.init("MTf_P8NaYf92ptUes");
+})();
 
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message").value;
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        console.log("📩 رسالة جديدة من:", name, "Email:", email, "Message:", message);
+    var templateParams = {
+        name: document.getElementById("userName").value,
+        email: document.getElementById("userEmail").value,
+        message: document.getElementById("userMessage").value
+    };
 
-        alert("تم إرسال الرسالة بنجاح!");
-        document.getElementById("contactForm").reset();
+    emailjs.send("service_xuq2bvm", "template_lb7vrzp", templateParams)
+    .then(function(response) {
+        alert("✅ تم إرسال البريد بنجاح!");
+    }, function(error) {
+        alert("❌ حدث خطأ أثناء الإرسال!");
     });
 });
