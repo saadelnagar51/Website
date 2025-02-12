@@ -16,6 +16,28 @@
     <h1>مرحبًا في موقعي الشخصي</h1>
 </header>
 
+<!-- User Registration and Login Section -->
+<section id="user-auth">
+    <h2>تسجيل الدخول أو إنشاء حساب</h2>
+    <form id="login-form" style="display:none">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="login-email" placeholder="أدخل بريدك الإلكتروني" required>
+        <label for="password">كلمة المرور:</label>
+        <input type="password" id="login-password" placeholder="أدخل كلمة المرور" required>
+        <button type="submit">تسجيل الدخول</button>
+        <p>ليس لديك حساب؟ <a href="#" onclick="showRegisterForm()">أنشئ حسابًا جديدًا</a></p>
+    </form>
+    
+    <form id="register-form">
+        <label for="new-email">البريد الإلكتروني:</label>
+        <input type="email" id="new-email" placeholder="أدخل بريدك الإلكتروني" required>
+        <label for="new-password">كلمة المرور:</label>
+        <input type="password" id="new-password" placeholder="أدخل كلمة المرور" required>
+        <button type="submit">إنشاء حساب</button>
+        <p>هل لديك حساب؟ <a href="#" onclick="showLoginForm()">تسجيل الدخول</a></p>
+    </form>
+</section>
+
 <section class="dashboard">
     <h2>لوحة تحكم المدير</h2>
     <p>إحصائيات الموقع: </p>
@@ -28,12 +50,17 @@
 
 <section class="user-management">
     <h2>إدارة المستخدمين</h2>
-    <button onclick="Swal.fire('تسجيل الدخول','يرجى تسجيل الدخول باستخدام بريدك الإلكتروني وكلمة المرور','info')">تسجيل الدخول</button>
+    <button onclick="Swal.fire('تسجيل الدخول','يرجى تسجيل الدخول باستخدام بريدك الإلكتروني وكلمة المرور','info')">إدارة الحسابات</button>
 </section>
 
 <section class="live-chat">
     <h2>الدردشة الحية</h2>
     <p>يمكنك الآن التحدث مباشرة معنا عبر <strong>Tawk.to</strong></p>
+</section>
+
+<section class="blog">
+    <h2>المدونة</h2>
+    <p>استعرض أحدث المقالات والمحتوى الحصري على مدونتنا.</p>
 </section>
 
 <section class="search">
@@ -42,14 +69,70 @@
     <button>بحث</button>
 </section>
 
+<section class="rating">
+    <h2>التقييمات</h2>
+    <p>قيم خدماتنا من 1 إلى 5 نجوم:</p>
+    <button onclick="rateService(1)">1 نجمة</button>
+    <button onclick="rateService(2)">2 نجوم</button>
+    <button onclick="rateService(3)">3 نجوم</button>
+    <button onclick="rateService(4)">4 نجوم</button>
+    <button onclick="rateService(5)">5 نجوم</button>
+</section>
+
 <footer>
     <p>حقوق الطبع والنشر © 2025</p>
 </footer>
 
 <script>
-    // Example of Push Notification integration
-    if (Notification.permission === "granted") {
-        new Notification("مرحبا بك في موقعي!");
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    function showLoginForm() {
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("register-form").style.display = "none";
+    }
+
+    function showRegisterForm() {
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("register-form").style.display = "block";
+    }
+
+    function registerUser(email, password) {
+        users.push({ email, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        Swal.fire('تم التسجيل!', 'يمكنك الآن تسجيل الدخول!', 'success');
+    }
+
+    function loginUser(email, password) {
+        let user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            Swal.fire('تم تسجيل الدخول!', 'أهلاً بك في موقعي الشخصي!', 'success');
+        } else {
+            Swal.fire('فشل تسجيل الدخول', 'البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
+        }
+    }
+
+    document.getElementById("register-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("new-email").value;
+        const password = document.getElementById("new-password").value;
+        registerUser(email, password);
+    });
+
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+        loginUser(email, password);
+    });
+
+    function rateService(rating) {
+        Swal.fire('تم التقييم!', 'شكرًا لتقييمك!', 'success');
+    }
+
+    if (currentUser) {
+        showLoginForm();
     }
 </script>
 
