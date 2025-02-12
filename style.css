@@ -12,111 +12,17 @@ header {
     padding: 20px 0;
 }
 
-header button {
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-}
-
 nav {
     display: flex;
     justify-content: center;
     background-color: #333;
     padding: 10px;
-    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    transition: 0.3s;
-    margin: 5px;
-}
-
-nav a:hover {
-    background-color: #007bff;
-    border-radius: 5px;
-}
-
-.portfolio {
-    text-align: center;
-    padding: 30px;
-}
-
-.carousel {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.carousel-item {
-    display: none;
-}
-
-.carousel-item img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.carousel .active {
-    display: block;
-}
-
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    font-size: 30px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    cursor: pointer;
-}
-
-.prev {
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.next {
-    right: 0;
-    transform: translateY(-50%);
-}
-
-.fade-in {
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.contact {
-    background: #f8f9fa;
-    padding: 30px;
-    text-align: center;
-}
-
-.contact input, .contact textarea {
-    width: 50%;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.contact button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
 }
 
 footer {
@@ -124,66 +30,39 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
 }
 
-footer .social-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+.login {
+    text-align: center;
+    margin: 50px;
 }
 
-.dark-mode {
-    background: #1e1e1e;
-    color: white;
+.login input {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
 }
 
-.dark-mode nav {
-    background: #444;
-}
-
-.dark-mode nav a:hover {
-    background: #555;
-}
-
-@media (max-width: 768px) {
-    .portfolio, .contact {
-        padding: 20px;
-    }
-
-    .contact input, .contact textarea {
-        width: 100%;
-    }
-
-    .carousel {
-        width: 100%;
-    }
-}
-
-/* Blog Section */
-.blog {
-    padding: 30px;
-    background: #f9f9f9;
-}
-
-.blog-post {
-    margin-bottom: 20px;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.blog-post h3 {
-    font-size: 24px;
-}
-
-.blog-post p {
-    font-size: 16px;
-}
-
-/* Google Map Section */
-.map {
+.admin-panel {
     padding: 30px;
     text-align: center;
-    background: #e9ecef;
+}
+
+.admin-panel form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.admin-panel input, .admin-panel textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }

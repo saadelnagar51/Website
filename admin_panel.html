@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>لوحة التحكم - إدارة المحتوى</h1>
+    </header>
+
+    <section class="admin-panel">
+        <h2>تعديل المقالات</h2>
+        <form id="editBlogForm" action="update_blog.php" method="post">
+            <label for="blogTitle">عنوان المقال:</label>
+            <input type="text" id="blogTitle" name="title" required>
+            <label for="blogContent">محتوى المقال:</label>
+            <textarea id="blogContent" name="content" rows="5" required></textarea>
+            <button type="submit">تحديث المقال</button>
+        </form>
+    </section>
+
+    <section class="admin-panel">
+        <h2>تعديل معرض الأعمال</h2>
+        <form id="editGalleryForm" action="update_gallery.php" method="post">
+            <label for="galleryTitle">عنوان الصورة:</label>
+            <input type="text" id="galleryTitle" name="title" required>
+            <label for="galleryImage">رابط الصورة:</label>
+            <input type="url" id="galleryImage" name="imageUrl" required>
+            <button type="submit">تحديث المعرض</button>
+        </form>
+    </section>
+
+</body>
+</html>
