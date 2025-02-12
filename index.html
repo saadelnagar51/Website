@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الشخصي</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  <!-- Sweet Alert for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/tawkto"></script> <!-- Tawk.to live chat integration -->
 </head>
 <body>
@@ -38,45 +38,32 @@
     </form>
 </section>
 
-<section class="dashboard">
-    <h2>لوحة تحكم المدير</h2>
-    <p>إحصائيات الموقع: </p>
-    <ul>
-        <li>عدد الزيارات: 1234</li>
-        <li>عدد الرسائل الواردة: 50</li>
-        <li>عدد المستخدمين: 200</li>
-    </ul>
-</section>
-
-<section class="user-management">
-    <h2>إدارة المستخدمين</h2>
-    <button onclick="Swal.fire('تسجيل الدخول','يرجى تسجيل الدخول باستخدام بريدك الإلكتروني وكلمة المرور','info')">إدارة الحسابات</button>
-</section>
-
-<section class="live-chat">
-    <h2>الدردشة الحية</h2>
-    <p>يمكنك الآن التحدث مباشرة معنا عبر <strong>Tawk.to</strong></p>
-</section>
-
-<section class="blog">
-    <h2>المدونة</h2>
-    <p>استعرض أحدث المقالات والمحتوى الحصري على مدونتنا.</p>
-</section>
-
-<section class="search">
-    <h2>البحث المتقدم</h2>
-    <input type="text" placeholder="ابحث هنا...">
-    <button>بحث</button>
-</section>
-
-<section class="rating">
-    <h2>التقييمات</h2>
-    <p>قيم خدماتنا من 1 إلى 5 نجوم:</p>
-    <button onclick="rateService(1)">1 نجمة</button>
-    <button onclick="rateService(2)">2 نجوم</button>
-    <button onclick="rateService(3)">3 نجوم</button>
-    <button onclick="rateService(4)">4 نجوم</button>
-    <button onclick="rateService(5)">5 نجوم</button>
+<!-- Display Services and Live Chat After Login -->
+<section id="user-services" style="display:none">
+    <h2>الخدمات المتاحة</h2>
+    <div class="service">
+        <h3>المدونة</h3>
+        <p>استعرض أحدث المقالات والمحتوى الحصري على مدونتنا.</p>
+    </div>
+    <div class="service">
+        <h3>التقييمات</h3>
+        <p>قيم خدماتنا من 1 إلى 5 نجوم.</p>
+    </div>
+    <div class="service">
+        <h3>التعليقات</h3>
+        <p>يمكنك إضافة تعليقات حول محتوى الموقع.</p>
+    </div>
+    <div class="service">
+        <h3>البحث المتقدم</h3>
+        <input type="text" placeholder="ابحث هنا...">
+        <button>بحث</button>
+    </div>
+    
+    <!-- Live Chat Integration -->
+    <section class="live-chat">
+        <h2>الدردشة الحية</h2>
+        <p>يمكنك الآن التحدث مباشرة معنا عبر <strong>Tawk.to</strong></p>
+    </section>
 </section>
 
 <footer>
@@ -108,9 +95,15 @@
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             Swal.fire('تم تسجيل الدخول!', 'أهلاً بك في موقعي الشخصي!', 'success');
+            showUserServices();
         } else {
             Swal.fire('فشل تسجيل الدخول', 'البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
         }
+    }
+
+    function showUserServices() {
+        document.getElementById("user-auth").style.display = "none";
+        document.getElementById("user-services").style.display = "block";
     }
 
     document.getElementById("register-form").addEventListener("submit", function (event) {
@@ -127,12 +120,8 @@
         loginUser(email, password);
     });
 
-    function rateService(rating) {
-        Swal.fire('تم التقييم!', 'شكرًا لتقييمك!', 'success');
-    }
-
     if (currentUser) {
-        showLoginForm();
+        showUserServices();
     }
 </script>
 
