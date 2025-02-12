@@ -1,22 +1,9 @@
-
 let currentIndex = 0;
 
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 }
 
-// Form validation before submitting
-function validateForm() {
-    let name = document.forms["contactForm"]["name"].value;
-    let email = document.forms["contactForm"]["email"].value;
-    if (name == "" || email == "") {
-        alert("يرجى ملء جميع الحقول!");
-        return false;
-    }
-    return true;
-}
-
-// Carousel functionality
 function showSlide(index) {
     const items = document.querySelectorAll('.carousel-item');
     if (index >= items.length) currentIndex = 0;
