@@ -5,140 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الشخصي</title>
-    <style>
-        /* تحسين التصميم */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(45deg, #007bff, #6610f2);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #007bff;
-            border-radius: 5px;
-        }
-
-        .container {
-            padding: 40px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #007bff;
-        }
-
-        .button {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: #0056b3;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 20px;
-            margin: 20px auto;
-            width: 50%;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            width: 100%;
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: #0056b3;
-        }
-
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>مرحبًا في موقعي الشخصي</h1>
+        <button onclick="toggleDarkMode()">🌙</button>
     </header>
 
     <nav>
         <a href="#">الرئيسية</a>
-        <a href="#">من نحن</a>
+        <a href="#">معرض الأعمال</a>
         <a href="#">الخدمات</a>
         <a href="#">اتصل بنا</a>
     </nav>
 
-    <div class="container">
-        <h1>أهلاً بك!</h1>
-        <p>هذا الموقع يعرض محتوى بسيط ويمكن تطويره لاحقًا. يمكنك إضافة المزيد من الصفحات والميزات حسب الحاجة.</p>
-        <a href="#" class="button">اكتشف المزيد</a>
-    </div>
+    <section class="portfolio">
+        <h2>معرض الأعمال</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300" alt="مشروع 1">
+            <img src="https://via.placeholder.com/300" alt="مشروع 2">
+            <img src="https://via.placeholder.com/300" alt="مشروع 3">
+        </div>
+    </section>
 
-    <div class="container contact-form">
+    <section class="contact">
         <h2>اتصل بنا</h2>
-        <form action="#" method="post">
+        <form action="send.php" method="post">
             <input type="text" name="name" placeholder="اسمك" required>
             <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
             <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
             <button type="submit">إرسال</button>
         </form>
-    </div>
+    </section>
 
-    <footer class="footer">
+    <footer>
         <p>&copy; 2025 موقعي الشخصي | جميع الحقوق محفوظة</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
