@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h1>مرحبًا في موقعي الشخصي</h1>
+        <h1 class="fade-in">مرحبًا في موقعي الشخصي</h1>
         <button onclick="toggleDarkMode()">🌙</button>
     </header>
 
@@ -18,21 +18,30 @@
         <a href="#">الرئيسية</a>
         <a href="#">معرض الأعمال</a>
         <a href="#">الخدمات</a>
+        <a href="#">من نحن</a>
         <a href="#">اتصل بنا</a>
     </nav>
 
-    <section class="portfolio">
+    <section class="portfolio fade-in">
         <h2>معرض الأعمال</h2>
-        <div class="gallery">
-            <img src="https://via.placeholder.com/300" alt="مشروع 1">
-            <img src="https://via.placeholder.com/300" alt="مشروع 2">
-            <img src="https://via.placeholder.com/300" alt="مشروع 3">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/600x400" alt="مشروع 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/600x400" alt="مشروع 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/600x400" alt="مشروع 3">
+            </div>
         </div>
+        <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+        <button class="carousel-control next" onclick="nextSlide()">❯</button>
     </section>
 
-    <section class="contact">
+    <section class="contact fade-in">
         <h2>اتصل بنا</h2>
-        <form action="send.php" method="post">
+        <form action="send.php" method="post" onsubmit="return validateForm()">
             <input type="text" name="name" placeholder="اسمك" required>
             <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
             <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
@@ -42,8 +51,180 @@
 
     <footer>
         <p>&copy; 2025 موقعي الشخصي | جميع الحقوق محفوظة</p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank">فيسبوك</a>
+            <a href="https://twitter.com" target="_blank">تويتر</a>
+            <a href="https://instagram.com" target="_blank">إنستجرام</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+style.css
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    background: linear-gradient(45deg, #007bff, #6610f2);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+nav a:hover {
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.portfolio {
+    text-align: center;
+    padding: 30px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel .active {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.contact {
+    background: #f8f9fa;
+    padding: 30px;
+    text-align: center;
+}
+
+.contact input, .contact textarea {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.contact button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #1e1e1e;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #444;
+}
+
+.dark-mode nav a:hover {
+    background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio, .contact {
+        padding: 20px;
+    }
+
+    .contact input, .contact textarea {
+        width: 100%;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+}
