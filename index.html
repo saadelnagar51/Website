@@ -4,49 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الاحترافي</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>موقعي الشخصي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
-<body class="dark-mode">
-
-    <div class="sidebar hidden" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
-        <h2>📂 القائمة</h2>
-        <a href="#" onclick="showSection('services')">📊 خدماتك</a>
-        <a href="#" onclick="showSection('payments')">💳 وسائل الدفع</a>
-        <button onclick="logout()">🚪 تسجيل الخروج</button>
-    </div>
-
-    <button class="menu-btn hidden" id="menuButton" onclick="toggleSidebar()">☰ القائمة</button>
-
+<body>
+    <header>
+        <h1>مرحبًا في موقعي الشخصي</h1>
+    </header>
+    <nav>
+        <a href="#">الصفحة الرئيسية</a>
+        <a href="#">من نحن</a>
+        <a href="#">الخدمات</a>
+        <a href="#">اتصل بنا</a>
+    </nav>
     <div class="container">
-        <section id="register" class="animated fadeIn">
-            <h2>🆕 تسجيل حساب جديد</h2>
-            <input type="text" id="regName" placeholder="الاسم" required>
-            <input type="email" id="regEmail" placeholder="البريد الإلكتروني" required>
-            <input type="password" id="regPassword" placeholder="كلمة المرور" required>
-            <button onclick="register()" class="glow-button">إنشاء الحساب</button>
+        <section id="home">
+            <h2>أهلاً بك!</h2>
+            <p>هذا الموقع يعرض محتوى بسيط ويمكن تطويره لاحقاً. يمكنك إضافة المزيد من الصفحات والميزات حسب الحاجة.</p>
         </section>
 
-        <section id="login" class="animated fadeIn">
-            <h2>🔑 تسجيل الدخول</h2>
-            <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required>
-            <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
-            <button onclick="login()" class="glow-button">تسجيل الدخول</button>
-        </section>
-
-        <section id="services" class="hidden animated fadeIn">
-            <h2>📊 خدماتك</h2>
-            <p class="animated slideIn">📈 التحليلات</p>
-            <p class="animated slideIn">💰 الصفقات</p>
-        </section>
-
-        <section id="payments" class="hidden animated fadeIn">
-            <h2>💳 وسائل الدفع</h2>
-            <p class="animated slideIn">إضافة طرق الدفع المختلفة</p>
+        <section id="contact">
+            <h2>اتصل بنا</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="اسمك" required>
+                <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+                <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit">إرسال</button>
+            </form>
         </section>
     </div>
-
+    <footer class="footer">
+        <p>&copy; 2025 موقعي الشخصي</p>
+    </footer>
 </body>
 </html>
