@@ -1,68 +1,39 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    transition: background 0.3s, color 0.3s;
+    background-color: #f4f4f4;
 }
 
 header {
-    background: linear-gradient(45deg, #007bff, #6610f2);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
     background-color: #333;
-    padding: 10px;
-}
-
-nav a {
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-.login {
-    text-align: center;
-    margin: 50px;
-}
-
-.login input {
-    width: 250px;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.admin-panel {
-    padding: 30px;
+    color: #fff;
+    padding: 10px 0;
     text-align: center;
 }
 
-.admin-panel form {
-    max-width: 500px;
-    margin: 0 auto;
+h1 {
+    margin: 0;
 }
 
-.admin-panel input, .admin-panel textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+.dashboard, .user-management, .live-chat, .search {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    background: #007bff;
-    color: white;
     padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
 }
