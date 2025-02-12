@@ -26,6 +26,7 @@ nav {
     justify-content: center;
     background-color: #333;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -33,6 +34,7 @@ nav a {
     padding: 10px 20px;
     text-decoration: none;
     transition: 0.3s;
+    margin: 5px;
 }
 
 nav a:hover {
@@ -45,15 +47,58 @@ nav a:hover {
     padding: 30px;
 }
 
-.gallery img {
-    width: 30%;
-    margin: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
 }
 
-.gallery img:hover {
-    transform: scale(1.1);
+.carousel-item {
+    display: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel .active {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .contact {
@@ -84,6 +129,13 @@ footer {
     margin-top: 20px;
 }
 
+footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Dark Mode */
 .dark-mode {
     background: #1e1e1e;
     color: white;
@@ -95,4 +147,19 @@ footer {
 
 .dark-mode nav a:hover {
     background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio, .contact {
+        padding: 20px;
+    }
+
+    .contact input, .contact textarea {
+        width: 100%;
+    }
+
+    .carousel {
+        width: 100%;
+    }
 }
