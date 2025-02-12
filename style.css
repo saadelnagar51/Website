@@ -159,3 +159,31 @@ footer .social-links a {
         width: 100%;
     }
 }
+
+/* Blog Section */
+.blog {
+    padding: 30px;
+    background: #f9f9f9;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.blog-post h3 {
+    font-size: 24px;
+}
+
+.blog-post p {
+    font-size: 16px;
+}
+
+/* Google Map Section */
+.map {
+    padding: 30px;
+    text-align: center;
+    background: #e9ecef;
+}

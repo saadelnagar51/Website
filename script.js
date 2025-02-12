@@ -24,4 +24,24 @@ function prevSlide() {
 
 document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
+
+    // Scroll Animation
+    const elements = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+        elements.forEach(element => {
+            const position = element.getBoundingClientRect().top;
+            if (position < window.innerHeight) {
+                element.classList.add('fade-in-visible');
+            }
+        });
+    });
 });
+
+function validateForm() {
+    let name = document.forms["contactForm"]["name"].value;
+    let email = document.forms["contactForm"]["email"].value;
+    if (name == "" || email == "") {
+        alert("الرجاء ملء جميع الحقول.");
+        return false;
+    }
+}
