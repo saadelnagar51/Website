@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الرئيسية</title>
+    <title>التقييمات</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
     <img src="images/logo.png" alt="شعار الموقع" class="logo">
-    <h1>مرحبًا في موقعي الشخصي</h1>
+    <h1>التقييمات</h1>
     <nav>
         <a href="index.html">الصفحة الرئيسية</a>
         <a href="blog.html">المدونة</a>
@@ -21,13 +21,23 @@
 </header>
 
 <section>
-    <h2>أهلاً بك في الموقع!</h2>
-    <p>هنا تجد جميع الخدمات المتاحة، اختر ما يناسبك من الروابط أعلى الصفحة.</p>
+    <h2>قيم خدماتنا</h2>
+    <button onclick="rateService(1)">1 نجمة</button>
+    <button onclick="rateService(2)">2 نجوم</button>
+    <button onclick="rateService(3)">3 نجوم</button>
+    <button onclick="rateService(4)">4 نجوم</button>
+    <button onclick="rateService(5)">5 نجوم</button>
 </section>
 
 <footer>
     <p>حقوق الطبع والنشر © 2025</p>
 </footer>
+
+<script>
+    function rateService(rating) {
+        alert("تم التقييم! شكراً لتقييمك.");
+    }
+</script>
 
 </body>
 </html>

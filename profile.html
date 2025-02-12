@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الرئيسية</title>
+    <title>حسابي</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
     <img src="images/logo.png" alt="شعار الموقع" class="logo">
-    <h1>مرحبًا في موقعي الشخصي</h1>
+    <h1>حسابي الشخصي</h1>
     <nav>
         <a href="index.html">الصفحة الرئيسية</a>
         <a href="blog.html">المدونة</a>
@@ -21,13 +21,25 @@
 </header>
 
 <section>
-    <h2>أهلاً بك في الموقع!</h2>
-    <p>هنا تجد جميع الخدمات المتاحة، اختر ما يناسبك من الروابط أعلى الصفحة.</p>
+    <h2>معلومات الحساب</h2>
+    <p>بريدك الإلكتروني: <span id="user-email"></span></p>
+    <button onclick="editProfile()">تعديل الحساب</button>
 </section>
 
 <footer>
     <p>حقوق الطبع والنشر © 2025</p>
 </footer>
+
+<script>
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+        document.getElementById('user-email').textContent = user.email;
+    }
+
+    function editProfile() {
+        alert("يمكنك تعديل بيانات حسابك هنا.");
+    }
+</script>
 
 </body>
 </html>
