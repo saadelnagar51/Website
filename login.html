@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SD Gold - تسجيل الدخول</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <header>
-        <h1>تسجيل الدخول إلى لوحة التحكم</h1>
-    </header>
-
-    <section class="login">
-        <form id="loginForm" action="login_process.php" method="post" onsubmit="return validateLoginForm()">
-            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-            <input type="password" name="password" placeholder="كلمة المرور" required>
-            <button type="submit">تسجيل الدخول</button>
-        </form>
-    </section>
-
-    <script src="script.js"></script>
-    <script>
-        function validateLoginForm() {
-            var email = document.forms["loginForm"]["email"].value;
-            var password = document.forms["loginForm"]["password"].value;
-
-            if (email !== "saadelnagar1234@gmail.com" || password !== "yourpassword") {
-                alert("البريد الإلكتروني أو كلمة المرور غير صحيحة.");
-                return false;
-            }
-        }
-    </script>
+  <div class="container">
+    <h1>تسجيل الدخول إلى SD Gold</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+      <input type="password" id="password" placeholder="كلمة المرور" required>
+      <button type="submit">تسجيل الدخول</button>
+    </form>
+    <p>ليس لديك حساب؟ <a href="signup.html">سجل هنا</a></p>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

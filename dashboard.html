@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - SD Gold</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>لوحة التحكم - SD Gold</h1>
+    <button id="logoutBtn">تسجيل الخروج</button>
+    
+    <div>
+      <h3>الصفقات الحالية</h3>
+      <table id="tradesTable">
+        <thead>
+          <tr>
+            <th>الزوج التجاري</th>
+            <th>نوع الصفقة</th>
+            <th>الحجم</th>
+            <th>التاريخ</th>
+            <th>العملية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- سيتم إضافة الصفقات هنا باستخدام JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h3>رسم بياني للصفقات</h3>
+      <canvas id="tradeChart"></canvas>
+    </div>
+
+    <div>
+      <h3>إضافة صفقة جديدة</h3>
+      <form id="addTradeForm">
+        <input type="text" id="pair" placeholder="الزوج التجاري" required>
+        <input type="number" id="size" placeholder="الحجم" required>
+        <select id="type" required>
+          <option value="buy">شراء</option>
+          <option value="sell">بيع</option>
+        </select>
+        <button type="submit">إضافة صفقة</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
